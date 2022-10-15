@@ -34,6 +34,7 @@ module.exports = {
 * O Webpack é uma ferramenta que possibilita o import de arquivos pelo módulo, não apenas funções Js mas tb arquivos JSON, JPEG, SASS e etc..
 * **yarn add webpack webpack/cli -D**
 * Criar o webpack.config.js
+* OK New Branch
 
 
 
