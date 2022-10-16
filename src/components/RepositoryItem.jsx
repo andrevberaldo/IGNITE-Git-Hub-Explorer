@@ -2,14 +2,16 @@ export function RepositoryItem(props) {
     const {
         name,
         description,
-        link
+        html_url
     } = props.repository;
+
+    console.log(props.repository)
 
     return (
         <li>
             <strong>{ name }</strong>
-            <p>{ description }</p>
-            <a href={ link }>Link to the Repo</a>
+            <p>{ description || 'No Description' }</p>
+            <a href={ html_url }>Link to the Repo</a>
         </li>
     )
 }
