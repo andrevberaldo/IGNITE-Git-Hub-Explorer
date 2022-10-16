@@ -3,8 +3,22 @@ on:
   pull_request:
   
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  test:
+    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node_version: ['8', '10', '12']
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
     steps:
-      - name: Run an exemple script
-        run: echo Run test!
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node_version }}
+
+    - name: yarn install and build
+      run: |
+        yarn install
+        yarn build
