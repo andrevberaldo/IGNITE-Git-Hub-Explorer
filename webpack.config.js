@@ -3,6 +3,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
+    devtool: 'eval-source-map',
     entry: path.resolve(__dirname, 'src', 'index.jsx'), //arquivo principal do projeto
     output: {
         path: path.resolve(__dirname, 'dist'), //qual a pasta será o output
