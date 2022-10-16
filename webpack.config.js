@@ -7,13 +7,13 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 module.exports = {
     mode: isDevelopment ? 'development' : 'production',
     devtool: isDevelopment ? 'eval-source-map' : 'source-map',
-    entry: path.resolve(__dirname, 'src', 'index.jsx'), //arquivo principal do projeto
+    entry: path.resolve(__dirname, 'src', 'index.tsx'), //arquivo principal do projeto
     output: {
         path: path.resolve(__dirname, 'dist'), //qual a pasta será o output
         filename: 'bundle.js' //nome do arquivo de output
     },
     resolve: {
-        extensions: ['.js','.jsx'] //quais extensões o webpack mapeará
+        extensions: ['.js','.jsx', '.ts', '.tsx'] //quais extensões o webpack mapeará
     },
     devServer: {
         static: path.resolve(__dirname, 'public'),
@@ -28,8 +28,8 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx$/, //de todos os arquivos, se acabar com .jsx entra no processamento
-                exclude: /node_modules/, //exclui node modules
+                test: /\.(j|t)sx$/, //de todos os arquivos, se acabar com .jsx entra no processamento
+                exclude: /node_modules/, //exclui node modules do processamento
                 use: {
                     loader: 'babel-loader',
                     options: {
