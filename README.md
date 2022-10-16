@@ -31,9 +31,33 @@ module.exports = {
 * Para o Babel funcionar com react devemos adicionar o preset: @babel/preset-react através do yarn e colocar o preset no export do babel.config.js
 
 ## Instalar WebPack
-* O Webpack é uma ferramenta que possibilita o import de arquivos pelo módulo, não apenas funções Js mas tb arquivos JSON, JPEG, SASS e etc..
+* O Webpack é uma ferramenta que possibilita o import de arquivos pelo módulo, não apenas funções Js mas tb arquivos JSON, JPEG, SASS e etc, sendo seu output um unico arquivo pronto para ser executado no
 * **yarn add webpack webpack/cli -D**
 * Criar o webpack.config.js
+
+```
+const path = require('path'); //lib que auxilia o path do projeto
+
+module.exports = {
+    entry: path.resolve(__dirname, 'src', 'index.jsx'), //arquivo principal do projeto
+    output: {
+        path: path.resolve(__dirname, 'dist'), //qual a pasta será o output
+        filename: 'bundle.js' //nome do arquivo de output
+    },
+    resolve: {
+        extensions: ['.js','.jsx'] //quais extensões o webpack mapeará
+    },
+    module: {
+        rules: [
+            {
+                test: /\.jsx$/, //de todos os arquivos, se acabar com .jsx entra no processamento
+                exclude: /node_modules/, //exclui node modules
+                use: 'babel-loader', //ferramenta que processa em conjunto com webpack
+            }
+        ]
+    }
+}
+```
 
 
 
