@@ -1,40 +1,10 @@
 name: DemoCD
 on:
-  workflow_dispatch:
+  pull_request:
   
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Run an exemple script
-        run: echo First Step Build
-        
-  deploy-dev:
-    runs-on: ubuntu-latest
-    environment:
-      name: dev
-      url: 'https://exemplo-dev.com'
-    needs: build
-    steps:
-      - name: Run an exemple script
-        run: echo Fake deploy on DEV
-
-  deploy-hmg:
-    runs-on: ubuntu-latest
-    environment:
-      name: hmg
-      url: 'https://exemplo-hmg.com'
-    needs: deploy-dev
-    steps:
-      - name: Run an exemple script
-        run: echo Fake deploy on HMG
-
-  deploy-prd:
-    runs-on: ubuntu-latest
-    environment:
-      name: prd
-      url: 'https://exemplo.com'
-    needs: deploy-hmg
-    steps:
-      - name: Run an exemple script
-        run: echo Fake deploy on PROD        
+        run: echo Run test!
