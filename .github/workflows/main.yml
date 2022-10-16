@@ -1,24 +1,24 @@
-name: DemoCD
-on:
-  pull_request:
+# name: DemoCD
+# on:
+#   pull_request:
   
-jobs:
-  test:
-    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node_version: ['16']
-        os: [ubuntu-latest]
+# jobs:
+#   test:
+#     name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+#     runs-on: ${{ matrix.os }}
+#     strategy:
+#       matrix:
+#         node_version: ['16']
+#         os: [ubuntu-latest]
 
-    steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node_version }}
+#     steps:
+#     - uses: actions/checkout@v1
+#     - name: Use Node.js ${{ matrix.node_version }}
+#       uses: actions/setup-node@v1
+#       with:
+#         node-version: ${{ matrix.node_version }}
 
-    - name: yarn install and build
-      run: |
-        yarn install
-        yarn build
+#     - name: yarn install and build
+#       run: |
+#         yarn install
+#         yarn build
