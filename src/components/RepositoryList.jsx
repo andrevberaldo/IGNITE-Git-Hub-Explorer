@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { RepositoryItem } from './RepositoryItem';
+import '../styles/repositories.scss';
 
 export function RepositoryList() {
 
