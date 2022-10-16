@@ -30,9 +30,9 @@ module.exports = {
                 use: 'babel-loader', //ferramenta que processa em conjunto com webpack
             },
             {
-                test: /\.css$/, //de todos os arquivos, se acabar com .css entra no processamento
+                test: /\.scss$/, //de todos os arquivos, se acabar com .css entra no processamento
                 exclude: /node_modules/, //exclui node modules
-                use: ['style-loader', 'css-loader'], //ferramenta que processa em conjunto com webpack
+                use: ['style-loader', 'css-loader', 'sass-loader'], //ferramenta que processa em conjunto com webpack
             }
         ]
     }
