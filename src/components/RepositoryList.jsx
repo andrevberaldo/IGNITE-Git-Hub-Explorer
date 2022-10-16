@@ -6,7 +6,7 @@ export function RepositoryList() {
     const repository = {
         name: faker.word.noun(),
         description: faker.word.noun(),
-        link: faker.internet.url()
+        link: faker.internet.url()       
     }
 
     return (
