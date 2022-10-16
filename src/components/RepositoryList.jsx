@@ -1,21 +1,24 @@
-import { faker } from '@faker-js/faker';
 import { RepositoryItem } from './RepositoryItem';
+import '../styles/repositories.scss';
+import { useEffect, useState } from 'react';
 
 export function RepositoryList() {
+    const [repos, setRepos] = useState([]);
+    
+    useEffect(() => {
+        fetch('https://api.github.com/users/andrevberaldo/repos')
+            .then(response => response.json())
+            .then(data => setRepos(data))
+    }, [])
 
-    const repository = {
-        name: faker.word.noun(),
-        description: faker.word.noun(),
-        link: faker.internet.url()
-    }
 
     return (
         <section className="repository-list">
             <h1>Repositories List</h1>
             <ul>
-                <RepositoryItem repository={repository}/>
-                <RepositoryItem repository={repository}/>
-                <RepositoryItem repository={repository}/>
+                {
+                    repos.map(repo => <RepositoryItem key={repo.id} repository={repo}/>)
+                }                
             </ul>
         </section>
     );
