@@ -1,6 +1,8 @@
 const path = require('path'); //lib que auxilia o path do projeto
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    mode: 'development',
     entry: path.resolve(__dirname, 'src', 'index.jsx'), //arquivo principal do projeto
     output: {
         path: path.resolve(__dirname, 'dist'), //qual a pasta será o output
@@ -9,6 +11,11 @@ module.exports = {
     resolve: {
         extensions: ['.js','.jsx'] //quais extensões o webpack mapeará
     },
+    plugins: [
+       new HtmlWebPackPlugin({
+        template: path.resolve(__dirname, 'public', 'index.html')
+       })
+    ],
     module: {
         rules: [
             {
