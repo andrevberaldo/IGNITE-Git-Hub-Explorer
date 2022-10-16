@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run an exemple script
-        run: echo First Step CI/CD (Build application)
+        run: echo First Step Build
         
   deploy-dev:
     runs-on: ubuntu-latest
