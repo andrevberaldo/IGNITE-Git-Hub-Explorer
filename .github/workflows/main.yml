@@ -22,7 +22,7 @@ jobs:
   deploy-hmg:
     runs-on: ubuntu-latest
     environment:
-      name: dev
+      name: hmg
       url: 'https://exemplo-hmg.com'
     needs: deploy-dev
     steps:
@@ -32,7 +32,7 @@ jobs:
   deploy-prd:
     runs-on: ubuntu-latest
     environment:
-      name: dev
+      name: prd
       url: 'https://exemplo.com'
     needs: deploy-hmg
     steps:
