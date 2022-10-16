@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 export function Counter() {
-
     const [counter, setCounter] = useState(0);
 
     function add() {
@@ -15,7 +14,7 @@ export function Counter() {
                 role={'button'}
                 onClick={add}
             >
-                Add
+                Add +1
             </button>
         </>
     )
