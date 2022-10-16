@@ -28,6 +28,11 @@ module.exports = {
                 test: /\.jsx$/, //de todos os arquivos, se acabar com .jsx entra no processamento
                 exclude: /node_modules/, //exclui node modules
                 use: 'babel-loader', //ferramenta que processa em conjunto com webpack
+            },
+            {
+                test: /\.css$/, //de todos os arquivos, se acabar com .css entra no processamento
+                exclude: /node_modules/, //exclui node modules
+                use: ['style-loader', 'css-loader'], //ferramenta que processa em conjunto com webpack
             }
         ]
     }
